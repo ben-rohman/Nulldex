@@ -47,7 +47,7 @@ std::string char_menu()
 
 	std::cout << "\nChoose a class by typing its name: \n(1) Paladin \n(2) Cleric \n(3) Rogue \n(4) "
 		  << "Wizard \n(5) Bard \n(6) Monk \n(7) Sorcerer \n(8) Barbarian \n(9) Artificer "
-		  << "\nEnter class namee here: ";
+		  << "\nEnter class name here: ";
 	std::getline(std::cin, name);
 	
 	//ensure string is lowercase for easy look up

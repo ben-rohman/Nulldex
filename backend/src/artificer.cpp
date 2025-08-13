@@ -150,9 +150,13 @@ void artificer::disp_backstory() const
 		"the Academy. \nBen packed in a fog of grief and regret. Leaving Velian deepened "
 		"his guilt, but he believed, or assumed, that Velian undertood why he had to go. ";
 
-	slow_print(part1, 0);
+/*	slow_print(part1, 0);
 	slow_print(pause, 0);
 	slow_print(part2, 0);
+*/	
+	slow_print(part1);
+	slow_print(pause, 55);
+	slow_print(part2);
 
 }
 

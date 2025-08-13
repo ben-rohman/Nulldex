@@ -15,7 +15,7 @@
 int main()
 {
 	clear_screen();		//Clear text from screen
-
+	
 	user * mc = intros(); 	
 	if (!validate_user(mc))	
 		return 1;	//error if 'mc' not properly set
@@ -44,6 +44,14 @@ int main()
 	progression * game = progression::build();
 	//game starts
 	game->play_all(mc);
+
+
+
+
+	delete mc;
+	delete game;
+
+
 
 /************************************ TESTING *********************************************/
   
@@ -90,9 +98,6 @@ int main()
 	}	
 	clear_screen();
 */
-
-	delete mc;
-	delete game;
 
 	return 0;
 }

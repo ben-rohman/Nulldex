@@ -145,7 +145,8 @@ void barbarian::disp_backstory() const
 		"\n\tThey will find the one responsible. \n\tAnd they will tear them apart with their bare hands. "
 		+ RESET + "\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 
 }
 
@@ -195,7 +196,8 @@ void barbarian::join_party() const
 		"'As long as we get it back.' \n\tRory nodded once. 'Then lead the way, little nerd. Let's go "
 		"dig up your mistake.'\n\n";
 
-	slow_print(party, 0);
+//	slow_print(party, 0);
+	slow_print(party);
 
 }
 

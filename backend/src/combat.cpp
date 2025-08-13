@@ -291,12 +291,12 @@ int roll_d4()
 //Checks if an action reliant on agility is successful
 bool agility_success(player * pl, int diff)
 {
-	int a = pl->get_tagil();
-	int roll = roll_d20();
+	int a {pl->get_tagil()};
+	int roll {roll_d20()};
 	int total = a + roll;
 
-	slow_print("\nYou rolled a " + std::to_string(roll) + " + agility stat (" + std::to_string(a) +
-		   ") = " + std::to_string(total) + '\n');
+	slow_print("\nYou rolled a <" + std::to_string(roll) + "> + agility stat <" + std::to_string(a) +
+		   "> = " + std::to_string(total) + '\n');
 
 	return total >= diff;
 }
@@ -304,12 +304,25 @@ bool agility_success(player * pl, int diff)
 //Checks if an action reliant on strength is successful
 bool strength_success(player * pl, int diff)
 {
-	int s = pl->get_tstr();
-	int roll = roll_d20();
+	int s {pl->get_tstr()};
+	int roll {roll_d20()};
 	int total = s + roll;
 
-	slow_print("\nYou rolled a " + std::to_string(roll) + " + strength stat (" + std::to_string(s) +
-		   ") = " + std::to_string(total) + '\n');
+	slow_print("\nYou rolled a <" + std::to_string(roll) + "> + strength stat <" + std::to_string(s) +
+		   "> = " + std::to_string(total) + '\n');
+
+	return total >= diff;
+}
+
+//Checks if an action reliant on intellect is successful
+bool intellect_success(player * pl, int diff)
+{
+	int i {pl->get_tint()};
+	int roll {roll_d20()};
+	int total = i + roll;
+
+	slow_print("\nYou rolled a <" + std::to_string(roll) + "> + intellect stat <" + std::to_string(i) +
+		   "> = " + std::to_string(total) + '\n');
 
 	return total >= diff;
 }

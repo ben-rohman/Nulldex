@@ -126,7 +126,8 @@ void rogue::disp_backstory() const
 		"destroying it would severe whatever tie now bonded them to it and end the voices that "
 		"haunted their thoughts.\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 }
 
 //Sets starter abilities/weapons
@@ -181,7 +182,8 @@ void rogue::join_party() const
 		"Sometimes you bend, sometimes you stand-' \n'Ben I'm going to fucking murder you if you "
 		"don't shut the fuck up.'\n\n";
 
-	slow_print(party, 0);
+//	slow_print(party, 0);
+	slow_print(party);
 }
 
 //Displays Gray's good ending

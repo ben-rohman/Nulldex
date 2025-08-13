@@ -133,7 +133,8 @@ void bard::disp_backstory() const
 		"\n\tMaeve doesn't know what's true anymore. " + ITALIC + "But she's going to find out. " + 
 		RESET + "\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 
 }
 
@@ -197,7 +198,8 @@ void bard::join_party() const
 		"rose and slung the instrument over her shoulder and turned toward the city. 'Let's rewrite "
 		"the ending this time. Together.'\n\n";
 
-	slow_print(party, 0);
+//	slow_print(party, 0);
+	slow_print(party);
 }
 
 //Displays Maeve's good ending

@@ -122,7 +122,8 @@ void wizard::disp_backstory() const
 		"to help Gray break the artifact's hold... and maybe protect the magic that was finally "
 		"hers.\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 
 }
 
@@ -183,7 +184,8 @@ void wizard::join_party() const
 		"\n'Thank you.' Ben exhaled, sounding as if he'd been holding his breath. \n'Thank me "
 		"after we get your NeuroArchive back. Now come on, we've got a scavenger hunt to go on.'\n\n";
 	
-	slow_print(party, 0);
+//	slow_print(party, 0);
+	slow_print(party);
 }
 
 //Displays Aurora's good ending

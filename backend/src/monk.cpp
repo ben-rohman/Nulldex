@@ -126,7 +126,8 @@ void monk::disp_backstory() const
 		"walk all paths, the gentle, the fierce, the fluid, still, until the world was made "
 		"whole again.\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 }
 
 //Sets starter ability/weapon
@@ -176,7 +177,8 @@ void monk::join_party() const
 		"am I to refuse? I'd be honored to help.' \nShe offered him her hand, not glowing nor "
 		"enchanted. Just a hand. 'Let's go, we have an adventure to start.'\n\n";
 
-	slow_print(party, 0);
+//	slow_print(party, 0);
+	slow_print(party);
 }
 
 //Displays Ivy's good ending

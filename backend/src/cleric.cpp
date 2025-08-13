@@ -116,7 +116,8 @@ void cleric::disp_backstory() const
 		"her heart certain that someone was disturbing the natural order of life and death. "
 		"And the gods were calling her to stop it.\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 }
 
 //Sets starter ability/weapon
@@ -174,7 +175,8 @@ void cleric::join_party() const
 		"way.' \nBen shook her hand, 'Nice to meet you, Annie, ready for an adventure?' "
 		"\n'Always.'";
 
-	slow_print(party, 0); 
+//	slow_print(party, 0); 
+	slow_print(party); 
 }
 
 //Displays Annie's good ending

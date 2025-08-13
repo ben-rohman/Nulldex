@@ -118,7 +118,8 @@ void sorcerer::disp_backstory() const
 		"of the source of magical energy had originated there and filled with an uncertain hope that "
 		"confronting her destiny might save the world... or doom it.\n\n";
 
-	slow_print(backstory, 0);
+//	slow_print(backstory, 0);
+	slow_print(backstory);
 }
 
 //Sets starater abilities/weapons
@@ -163,7 +164,8 @@ void sorcerer::join_party() const
 		"a dry chuckle. 'You're lucky I'm bored and have nowhere else to go.' \n'Ben's smile widened. "
 		"'I'll take it.'\n\n";
 
-	slow_print(party, 0);
+//	slow_print(party, 0);
+	slow_print(party);
 }
 
 //Displays Sky's good ending

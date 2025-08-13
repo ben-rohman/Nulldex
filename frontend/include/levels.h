@@ -5,6 +5,7 @@
 
 #include <queue>			//record movement
 #include <climits>			//defines parameters that characterize ints
+#include <iomanip>			//for setw(), used in output
 #include "game.h"
 
 /************************************* CLASS DECLARATIONS *****g**************************************/
@@ -21,14 +22,6 @@ class level1 : public stage
 		bool completed;	
 		bool mem_puzzle(const std::string & prompt, const std::string & ans);
 		bool fight_wraith(user * player, monster & wraith);
-		//combat helpers
-		void display_stats(player * p, monster & wraith);
-		bool player_action(player * p, monster & wraith);
-		int choose_action(player * p, bool mag);
-		bool weap_action(player * p, monster & wraith);
-		bool spell_action(player * p, monster & wraith);
-		bool item_action(player * p);
-		void wraith_action(player * p, monster & wraith);
 };
 
 //Level 2; Sky: Fate/Destiny
@@ -121,7 +114,7 @@ class level3 : public stage
 		void load_default();
 		void mirror_maze();	//chase helper with mirrored default maze and only 1 'S'
 		void draw_maze() const;
-		char get_input()  const;
+		char get_input() const;
 		bool try_move(std::pair<int, int> & pos, const std::pair<int, int> & mov);
 		int souls_index(const std::pair<int, int> & pos) const;
 		//event handlers
@@ -160,4 +153,124 @@ class level4 : public stage
 
 };
 
+//Level 5; Ivy: Balance
+class level5 : public stage
+{
+	public:
+		level5();
+		bool play(user * pl) override;
+		bool is_complete() const override;
+	
+	private:
+		//variables
+		bool completed;		//has the level been completed
+					//monastery map
+		std::vector<std::string> map;
+					//player's position in the map
+		std::pair<int, int> ppos;
+					//position of the exit
+		std::pair<int, int> exit;
+		struct patrol		//sentry patrols
+		{			//routes/list of patrol path tiles
+			std::vector<std::pair<int, int>> route;
+			int step;	//current position index
+		};
+		std::vector<patrol> sentries;
+		int range;		//how far a sentry can see in a straight line
+		//functions
+		void load_map();	//defines the monastery map and sets positions/routes
+		void draw_map() const;	//outputs the map
+					//decides which direction player moves in based on char c
+		std::pair<int, int> movement(char c) const;
+		bool try_move(std::pair<int, int> & pos, const std::pair<int, int> & mov);
+		void update_sentries();
+		bool check_detection() const;
+		bool stealth(user * pl);
+		char get_input() const;
+		bool confront(user * pl);
 
+};
+
+//Level 6; Maeve: Truth
+class level6 : public stage
+{
+	public: 
+		level6();
+		bool play(user * pl) override
+		bool is_complete() const override;
+
+	private:
+		bool completed;		//has the level been completed
+		int score;
+		//witnesses and their stories
+		std::vector<std::string> names;		//size = 3
+		std::vector<std::vector<int>> stories;	//per witness sequence of fact IDs
+		//facts and notebook
+		std::map<int, std::string> facts;	//fact id and display text
+							//fact id and list of ids it contradicts(
+		std::map<int, std::vector<int>> contradicts;//(symmetric)
+		std::map<int, int> notebook;		//fact id and 0: unknown, 1: true, 2: false
+		std::map<int, int> claimed;		//fact id and witness index
+		int truth;				//correct story, 0-2 = specific witness's story
+							//	3 = composite reconstruction is correct
+		//setup
+		void load_case();
+		void add_contradiction(int a, int b);
+		//UI/Flow
+		void intro();
+		void menu();
+		void show_witness(int idx) const;
+		void show_notebook() const;
+		void list_facts() const;
+		void mark_fact();
+		void mark_contradict(int id, int state);
+		void explain(int id) const;
+		//resolution
+		int choose() const;
+		int tally_score() const;
+//		int award(user * pl, int score, bool verdict);
+
+};
+/*
+//Level 7; Tav: Morality
+class level7 : public stage
+{
+	public:
+		level7();
+		bool play(user * play) override;
+		bool is_complete() const override;
+	
+	private:
+		bool completed;		//has the level been completed
+		//functions...
+
+};
+
+//Level 8; Aurora: Altruism VS Ambition
+class level8 : public stage
+{
+	public:
+		level8();
+		bool play(user * play) override;
+		bool is_complete() const override;
+	
+	private:
+		bool completed;		//has the level been completed
+		//functions
+
+};
+
+//Level 9; Ben: Decide-- the End
+class level9 : public stage
+{
+	public:
+		level9();
+		bool play(user * play) override;
+		bool is_complete() const override;
+
+	private:
+		bool completed;		//has the level been completed
+		//functions...
+
+};
+*/

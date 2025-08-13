@@ -79,3 +79,5 @@ int roll_d4();			//simulates rolling a 4 sided die
 bool agility_success(player * pl, int diff);
 //Checks if an action reliant on strength is successful
 bool strength_success(player * pl, int diff);
+//Checks if an action reliant on intellect is successful
+bool intellect_success(player * pl, int diff);

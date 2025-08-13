@@ -39,10 +39,13 @@ void progression::add_stage(stage * phase)
 void progression::play_all(user * player)
 {
 	node * curr = head;
+	int num {0};
 	while (curr && player->is_alive())
 	{
 		wait();
 		clear_screen();
+		while (player->get_player()->get_class()->get_lvl() < num - 1)
+			player->get_player()->get_class()->req_lvlup();
 		if (!curr->step->play(player))
 		{
 			std::cout << "\nLevel failed or incomplete. " << std::endl;
@@ -53,8 +56,14 @@ void progression::play_all(user * player)
 		player->get_player()->get_class()->give_exp(200);
 		std::cout << "\n\n\t\tYou have leveled up! You are now level " 
 			  << player->get_player()->get_class()->get_lvl() << std::endl;
+		display_stats(player->get_player());
+		display_abils(player->get_player());
+		display_backpack(player->get_player());
+		display_weap(player->get_player());
+		display_arm(player->get_player());
 
 		curr = curr->next;
+		++num;
 	}
 	std::cout << "\nGame over or player is dead. " << std::endl;
 }
@@ -65,10 +74,10 @@ progression * progression::build()
 	progression * game = new progression();
 
 //	game->add_stage(new level1());
-	game->add_stage(new level2());
+//	game->add_stage(new level2());
 //	game->add_stage(new level3());
 //	game->add_stage(new level4());
-//	game->add_stage(new level5());
+	game->add_stage(new level5());
 //	game->add_stage(new level6());
 //	game->add_stage(new level7());
 //	game->add_stage(new level8());

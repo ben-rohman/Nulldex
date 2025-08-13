@@ -16,11 +16,11 @@ level3::level3()
 {
 	completed = false;
 	remain = 3;
-/*	part = {0, 0};
-	prev = {0, 0};
-	exit = {0, 0};
-	soul = {0, 0};
-*/
+	part.clear();
+	prev.clear();
+	exit.clear();
+	soul.clear();
+	dist_map.clear();
 	load_default();			//load first maze
 }
 
@@ -64,30 +64,28 @@ void level3::print_intro()
 //if P lands on an S tile->find which soul->handles removing S tile from maze and spirit vector
 bool level3::interact(user * pl)
 {
-	bool success {false};
+	//variables
+	bool success {0};
 	int loc = souls_index(part[0]);
 	if (loc < 0)
 		return false;
-	int idx = spirit[loc];
-
-	if (idx == 0)
+	int type = spirit[loc];
+	if (type == 0)
 		success = peaceful(pl, loc);
-	else if (idx == 1)
+	else if (type == 1)
 		success = logic(pl, loc);
 	else
 		success = chase(pl, loc);
-	
 	if (success)
 	{
-		maze[part[0].first][part[0].second] = '.';
-		soul.erase(soul.begin() + idx);
-		spirit.erase(spirit.begin() + idx);
+		maze[part[0].first][part[0].second] = ' ';
+		soul.erase(soul.begin() + loc);
+		spirit.erase(spirit.begin() + loc);
 		remain = static_cast<int>(soul.size());
-		slow_print("\n\n\tSoul is laid to rest... \n");
+		slow_print("\n\n\tSoul is laid to rest...\n");
 	}
 	else
-		slow_print("\n\n\tThe soul resists your aid... for now... \n");
-
+		slow_print("\n\n\tThe soul resists your aid... for now...\n");
 	std::this_thread::sleep_for(std::chrono::milliseconds(800));
 	return success;
 }
@@ -110,88 +108,6 @@ bool level3::check_end(user * pl)
 	return false;
 }
 
-/*
-bool level3::play(user * pl)
-{
-	//variables
-	remain = static_cast<int>(soul.size());
-	
-	slow_print("\n\n\t\t" + ITALIC + UNDERLINE + "========= Level 3: Lullaby of the Departed "
-		   "=========\n\n" + RESET, 60);
-	slow_print("\tA graveyard of restless spirits beckons. Guide three souls to peace.\n\n", 60);
-	slow_print(BOLD + "\n\tUse WASD (or arrow keys) to move. Reach 'S' to interact with a "
-		   "soul. " + UNDERLINE + "\nSouls remaining: " + RESET + std::to_string(remain) + '\n');
-	std::this_thread::sleep_for(std::chrono::milliseconds(700));
-
-	//game loop: until all souls helped or player dies/quits (press 'q')
-	while (remain > 0 && pl->is_alive())
-	{
-		draw_maze();
-		char ch = get_input();
-		if (!ch)
-			continue;
-		ch = static_cast<char>(std::tolower(ch));
-		
-		std::pair<int, int> mov {0, 0};
-		if (ch == 'w')
-			mov = {-1, 0};	//up
-		else if (ch == 's')
-			mov = {1, 0};	//down
-		else if (ch == 'a')
-			mov = {0, -1};	//left
-		else if (ch == 'd')
-			mov = {0, 1};	//right
-		else
-			continue;	//ignore all other keys
-
-		if (try_move(part[0], mov))
-		{
-			int loc = souls_index(part[0]);
-			if (loc >= 0)
-			{		//trigger event based on soul index
-				int idx = spirit[loc];
-				bool success = false;	//MAP:
-				if (idx == 0)		//peaceful (choice)
-					success = peaceful(pl, loc);
-				else if (idx == 1)	//combat
-					success = logic(pl, loc);
-				else 			//logic(riddle)
-					success = chase(pl, loc);
-
-				if (success)
-				{
-					maze[part[0].first][part[0].second] = '.';//remove from 'soul'
-					soul.erase(soul.begin() + idx);
-					spirit.erase(spirit.begin() + idx);
-					remain = static_cast<int>(soul.size());
-					//small pause and redraw
-					slow_print("\n\n\tA gentle wind passes over the grave.\n");
-					std::this_thread::sleep_for(std::chrono::milliseconds(800));
-				}
-				else
-				{
-					slow_print("\n\n\tThe soul resists your aid... for now.\n");
-					std::this_thread::sleep_for(std::chrono::milliseconds(800));
-				}
-			}
-		}
-	}//end game loop
-
-	if (remain == 0)
-	{
-		slow_print("\n\tA lullaby whispers through the stone. The graveyard quiets...\n");
-		completed = true;
-		std::this_thread::sleep_for(std::chrono::milliseconds(600));
-		return true;
-	}
-	if (!pl->is_alive())
-	{
-		slow_print("\nYou fall in the graveyard... darkness consumes you.\n");
-		return false;
-	}
-	return false;
-}
-*/
 /***************************************** MAZE FUNCTIONS *******************************************/
 //basic maze layout	# = wall, . = floor, S = soul, P = player starting position
 void level3::load_default()
@@ -199,15 +115,15 @@ void level3::load_default()
 	maze = 
 	{
 		"############################",
-		"#P....##.....S....#....#..#",
-		"#.##..##.##.###.#####.##.##",
-		"#....###....#.........#...#",
-		"##.#####.#####.###.###..#.#",
-		"#......#.....#...#.....#..#",
-		"#.####...###.#.#.#.###.#.##",
-		"#..S..##..#...#.#...#...###",
-		"###.#####.#.###.#.#.#.#####",
-		"#....#.....#.......##....S#",
+		"#P....##.....S....#....#...#",
+		"#.##..##.##.###.#####.##.###",
+		"#....###....#.........#...##",
+		"##.#####.#####.###.###..#.##",
+		"#......#.....#...#.....#..##",
+		"#.####...###.#.#.#.###.#.###",
+		"#..S..##..#...#.#...#...####",
+		"###.#####.#.###.#.#.#.######",
+		"#....#.....#.......##.....S#",
 		"############################"
 	};
 	for (int y = 0; y < (int)maze.size(); ++y)
@@ -235,15 +151,15 @@ void level3::mirror_maze()
 	maze = 
 	{
 		"############################",
-		"#S...P##.......#.....#....#",
-		"#####.#.#.#.###.#.#####.###",
-		"###...#...#.#...#..##.....#",
-		"##.#.###.#.#.#.###...####.#",
-		"#..#.....#...#.....#......#",
-		"#.#..###.###.#####.#####.##",
-		"#...#.........#....###....#",
-		"##.##.#####.###.##.##..##.#",
-		"#..#....#..........##....E#",
+		"#S...P##.......#.....#....##",
+		"#####.#.#.#.###.#.#####.####",
+		"###...#...#.#...#..##.....##",
+		"##.#.###.#.#.#.###...####.##",
+		"#..#.....#...#.....#......##",
+		"#.#..###.###.#####.#####.###",
+		"#...#.........#....###....##",
+		"##.##.#####.###.##.##..##.##",
+		"#..#....#..........##.....E#",
 		"############################"
 	};
 	//clear previous positions
@@ -287,7 +203,7 @@ void level3::draw_maze() const
 			else if (!exit.empty() && y == exit[0].first && x == exit[0].second)
 				std::cout << GREEN << BOLD << 'E' << RESET << "   ";
 			else
-				std::cout << maze[y][x] << "    ";
+				std::cout << maze[y][x] << "   ";
 		}
 		std::cout << "\n\n";
 	}

@@ -133,6 +133,7 @@ void paladin::disp_backstory() const
 		"determined to uphold his sacred oath.\n\n";
 
 	slow_print(backstory, 0);
+//	slow_print(backstory);
 
 }
 
@@ -195,6 +196,7 @@ void paladin::join_party() const
 		"ridding a magical object of corruption be from carving rot from a pumpkin?'\n\n";
 
 	slow_print(party, 0);
+//	slow_print(party);
 }
 
 //Displays Tav's good ending
