@@ -143,6 +143,7 @@ void level3::load_default()
 			}
 		}
 	}
+
 }
 
 //mirrored maze layout for chase sequence
@@ -197,15 +198,27 @@ void level3::draw_maze() const
 		for (int x = 0; x < (int)maze[y].size(); ++x)
 		{
 			if (!part.empty() && y == part[0].first && x == part[0].second)
-				std::cout << CYAN << BOLD << 'P' << RESET << "   ";
-			else if (!soul.empty() && y == soul[0].first && x == soul[0].second)
-				std::cout << MAGENTA << BOLD << 'S' << RESET << "   ";
-			else if (!exit.empty() && y == exit[0].first && x == exit[0].second)
-				std::cout << GREEN << BOLD << 'E' << RESET << "   ";
+			{
+				std::cout << BLUE << SKY << BOLD << BGPEARL << " P " << RESET;
+				continue;
+			}
+			if (!soul.empty() && y == soul[0].first && x == soul[0].second)
+			{
+				std::cout << RED << BOLD << BGPEARL << " S " << RESET;
+				continue;
+			}
+			if (!exit.empty() && y == exit[0].first && x == exit[0].second)
+			{
+				std::cout << FOREST << BOLD << BGPEARL << " E " << RESET;
+				continue;
+			}
+			char t = maze[y][x];
+			if (t == '#')
+				std::cout << BGGRAY << BLACK << " # " << RESET;
 			else
-				std::cout << maze[y][x] << "   ";
+				std::cout << BGPEARL << BLACK << " . " << RESET;
 		}
-		std::cout << "\n\n";
+		std::cout << '\n';
 	}
 
 }

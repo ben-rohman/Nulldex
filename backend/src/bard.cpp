@@ -65,30 +65,32 @@ void bard::intro() const
 {
 	
 	std::string header = 
-		"\nName: Maeve \nClass: Bard; College of Lore \n\n--------- BASE STATS --------- \n"
-                "\nHP: " + std::to_string(bard::base_hp) + "\nMP: " + std::to_string(bard::base_mp) +
-		"\nStrength: " + std::to_string(bard::base_str) + "\nIntellect: " +
-		std::to_string(bard::base_int) +  "\nAgility: " + std::to_string(bard::base_agi) + 
-		"\n--------- Preview --------- \n\n";
+		"\n\tName: Maeve \n\tClass: Bard; College of Lore \n\t\t--------- BASE STATS --------- \n"
+                "\n\tHP: " + std::to_string(bard::base_hp) + "\n\tMP: " + std::to_string(bard::base_mp) +
+		"\n\tStrength: " + std::to_string(bard::base_str) + "\n\tIntellect: " +
+		std::to_string(bard::base_int) +  "\n\tAgility: " + std::to_string(bard::base_agi) + 
+		"\n\n\t\t--------- Preview --------- \n\n";
 	
 	std::string preview =		  
-		"Once a wide-eyed student of legends, Maeve grew up enamored with the tales of noble "
-		"heroes and glorious Monarchs passed down by her grandparents and the Bards of her city. "
-		"Her passion for stories led her \nto the prestigious Bard's College, where she "
+		"\tOnce a wide-eyed student of legends, Maeve grew up enamored with the tales of noble "
+		"heroes and glorious Monarchs passed\ndown by her grandparents and the Bards of her city. "
+		"Her passion for stories led her to the prestigious Bard's College, where \nshe "
 		"specialized in Lore and devoted herself to uncovering forgotten histories. But "
-		"when her curiosity pulled her into the forbidden corners of the library, Maeve\n"
-		"discovers a secret that shatters everything she believed. \nA long surpressed "
-		"account of treachery, war, and rewritten history revealed the the beloved tale "
-		"of her childhood to be a carefully orchestrated lie, one buried by fear, magic, "
-		"and the stroke of a Bard's pen.\nWhen Maeve tried to bring the truth to light, "
-		"she was cast out for treason and forced to leave her city behind. \nNow in "
-		"exile, Maeve carries not only a haunted truth but also a burning question: if "
-		"the stories we live by are lies, what else must be rewritten? \nDriven by a "
-		"stubborn heart and fierce love of truth, Maeve seeks to reclaim the narrative, "
+		"when her curiosity pulled her into the \nforbidden corners of the library, Maeve "
+		"discovers a secret that shatters everything she believed. A long surpressed "
+		"account of \ntreachery, war, and rewritten history revealed the the beloved tale "
+		"of her childhood to be a carefully orchestrated lie, one \nburied by fear, magic, "
+		"and the stroke of a Bard's pen.When Maeve tried to bring the truth to light, "
+		"she was cast out for \ntreason and forced to leave her city behind. Now in "
+		"exile, Maeve carries not only a haunted truth but also a burning question: \nif "
+		"the stories we live by are lies, what else must be rewritten? Driven by a "
+		"stubborn heart and fierce love of truth, Maeve seeks to \nreclaim the narrative, "
 		"no matter the cost.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 
 }
 

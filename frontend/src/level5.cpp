@@ -220,7 +220,6 @@ void level5::draw_map() const
 	{
 		for (int x = 0; x < cols; ++x)
 		{
-			std::string cell;
 			if (ppos.first == y && ppos.second == x)
 			{
 				std::cout << BLUE << SKY << BOLD << BGPEARL << " P " << RESET;

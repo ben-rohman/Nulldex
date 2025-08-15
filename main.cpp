@@ -41,15 +41,15 @@ int main()
 //	wait();
 
 	//game lll built
-	progression * game = progression::build();
+//	progression * game = progression::build();
 	//game starts
-	game->play_all(mc);
+//	game->play_all(mc);
 
 
 
 
 	delete mc;
-	delete game;
+//	delete game;
 
 
 

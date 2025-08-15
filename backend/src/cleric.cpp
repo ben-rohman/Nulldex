@@ -59,26 +59,28 @@ void cleric::level_up() noexcept
 void cleric::intro() const
 {
 	std::string header = 
-		"\nName: Annie \nClass: Cleric; Twilight Domain \n\n--------- BASE STATS "
-                "-------- \n\nHP: " + std::to_string(cleric::base_hp) + "\nMP: " +
-		std::to_string(cleric::base_mp) + "\nStrength: " + std::to_string(cleric::base_str) +
-		"\nIntellect: " + std::to_string(cleric::base_int) + "\nAgility: " +
-		std::to_string(cleric::base_agi) + "\n\n-------- Preview --------\n\n";
+		"\n\tName: Annie \n\tClass: Cleric; Twilight Domain \n\n\t\t--------- BASE STATS "
+                "-------- \n\n\tHP: " + std::to_string(cleric::base_hp) + "\n\tMP: " +
+		std::to_string(cleric::base_mp) + "\n\tStrength: " + std::to_string(cleric::base_str) +
+		"\n\tIntellect: " + std::to_string(cleric::base_int) + "\n\tAgility: " +
+		std::to_string(cleric::base_agi) + "\n\n\t\t--------- Preview ---------\n\n";
 	
 	std::string preview = 
-		"Once a gentle farm girl with an unusual affinity for death, Annie found "
-		"herself drawn by unseen forces to a city church devoted to the Twilight "
-		"gods. There, her lifelong compassion for the suffering and \ndying "
-		"transformed into a divine calling. As a Cleric of Hestia, Ilmater, Hermes, "
-		"and Morpheus, Sister Annie now guides lost souls to rest and comfort those "
-		"burdened by grief. \nBut Annie's path is far from peaceful. After years of "
-		"service, news of souls trapped inside a magical invention reach the doors "
-		"of her church. Annie's faith is tested as she confronts forces beyond even "
-		"\ndivine understanding, a growing sense that something, or someone, has "
+		"\tOnce a gentle farm girl with an unusual affinity for death, Annie found "
+		"herself drawn by unseen forces to a city church\ndevoted to the Twilight "
+		"gods. There, her lifelong compassion for the suffering and dying "
+		"transformed into a divine calling. As \na Cleric of Breksta, "
+		"Sister Annie now guides lost souls to rest and comfort those "
+		"burdened by grief. But Annie's path is far \nfrom peaceful. After years of "
+		"service, news of souls trapped inside a magical invention reaches the doors "
+		"of her church. \nAnnie's faith is tested as she confronts forces beyond even "
+		"divine understanding, a growing sense that something, or someone, \nhas "
 		"slipped through the veil between life and death... and is still watching.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 		
 }
 
@@ -116,8 +118,8 @@ void cleric::disp_backstory() const
 		"her heart certain that someone was disturbing the natural order of life and death. "
 		"And the gods were calling her to stop it.\n\n";
 
-//	slow_print(backstory, 0);
-	slow_print(backstory);
+	slow_print(backstory, 0);
+//	slow_print(backstory);
 }
 
 //Sets starter ability/weapon
@@ -175,8 +177,8 @@ void cleric::join_party() const
 		"way.' \nBen shook her hand, 'Nice to meet you, Annie, ready for an adventure?' "
 		"\n'Always.'";
 
-//	slow_print(party, 0); 
-	slow_print(party); 
+	slow_print(party, 0); 
+//	slow_print(party); 
 }
 
 //Displays Annie's good ending

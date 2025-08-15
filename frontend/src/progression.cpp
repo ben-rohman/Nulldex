@@ -73,10 +73,10 @@ progression * progression::build()
 {
 	progression * game = new progression();
 
-//	game->add_stage(new level1());
-//	game->add_stage(new level2());
-//	game->add_stage(new level3());
-//	game->add_stage(new level4());
+	game->add_stage(new level1());
+	game->add_stage(new level2());
+	game->add_stage(new level3());
+	game->add_stage(new level4());
 	game->add_stage(new level5());
 //	game->add_stage(new level6());
 //	game->add_stage(new level7());

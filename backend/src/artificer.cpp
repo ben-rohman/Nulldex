@@ -62,23 +62,25 @@ void artificer::level_up() noexcept
 void artificer::intro() const
 {
 	std::string header = 
-		"\nName: Ben\nClass: Artificer; Archivist \n--------- BASE STATS ---------\n\nHP: " +
-		std::to_string(artificer::base_hp) + "\nMP: " + std::to_string(artificer::base_mp) +
-		"\nStrength: " + std::to_string(artificer::base_str) + "\nIntellect: " +
-		std::to_string(artificer::base_int) + "\nAgility: " + std::to_string(artificer::base_agi) +
-		"\n\n--------- Preview ---------\n\n";
+		"\n\tName: Ben\n\tClass: Artificer; Archivist \n\t\t--------- BASE STATS ---------\n\n\tHP: " +
+		std::to_string(artificer::base_hp) + "\n\tMP: " + std::to_string(artificer::base_mp) +
+		"\n\tStrength: " + std::to_string(artificer::base_str) + "\n\tIntellect: " +
+		std::to_string(artificer::base_int) + "\n\tAgility: " + std::to_string(artificer::base_agi) +
+		"\n\n\t\t--------- Preview ---------\n\n";
 	std::string preview = 
-		"A prodigy in Arcane Sciences, Ben is a gifted inventor known for his "
-                "curiosity, ingenuity, and quiet determination. As a student at the capital's "
-                "Academy of Magic, he discovers an ancient magical system and \ndeveloped the "
-                "NeuroArchive, a device capable of storing and accessing memories. When a "
+		"\tA prodigy in Arcane Sciences, Ben is a gifted inventor known for his "
+                "curiosity, ingenuity, and quiet determination. As \na student at the capital's "
+                "Academy of Magic, he discovers an ancient magical system and developed the "
+                "NeuroArchive, a device \ncapable of storing and accessing memories. When a "
                 "tragic test of the prototype ends in the death of a close friend, Ben is "
-                "chosen to escort the NeuroArchive to the Wizard \nCity for dismantling. "
-                "Burdened by guilt and haunted by his creation, Ben begins his journey unaware "
+                "\nchosen to escort the NeuroArchive to the Wizard City for dismantling. "
+                "Burdened by guilt and haunted by his creation, Ben begins his \njourney unaware "
                 "that his invention has already changed more than just himself.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 }
 
 //Displays Ben's backstory
@@ -150,13 +152,13 @@ void artificer::disp_backstory() const
 		"the Academy. \nBen packed in a fog of grief and regret. Leaving Velian deepened "
 		"his guilt, but he believed, or assumed, that Velian undertood why he had to go. ";
 
-/*	slow_print(part1, 0);
+	slow_print(part1, 0);
 	slow_print(pause, 0);
 	slow_print(part2, 0);
-*/	
-	slow_print(part1);
-	slow_print(pause, 55);
-	slow_print(part2);
+	
+//	slow_print(part1);
+//	slow_print(pause, 55);
+//	slow_print(part2);
 
 }
 

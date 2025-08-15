@@ -60,26 +60,28 @@ void rogue::level_up() noexcept
 void rogue::intro() const
 {
 	std::string header = 
-		"\nName: Gray \nClass: Rogue; Soulknife \n\n--------- BASE STATS --------\n "
-                "\nHP: " + std::to_string(rogue::base_hp) + "\nMP: " + std::to_string(rogue::base_mp) +
-		"\nStrength: " + std::to_string(rogue::base_str) + "\nIntellect: " + 
-		std::to_string(rogue::base_int) + "\nAgility: " + std::to_string(rogue::base_agi) + 
-		"\n\n--------- Preview ---------\n\n";
+		"\n\tName: Gray \n\tClass: Rogue; Soulknife \n\n\t\t--------- BASE STATS --------\n "
+                "\n\tHP: " + std::to_string(rogue::base_hp) + "\n\tMP: " + std::to_string(rogue::base_mp) +
+		"\n\tStrength: " + std::to_string(rogue::base_str) + "\n\tIntellect: " + 
+		std::to_string(rogue::base_int) + "\n\tAgility: " + std::to_string(rogue::base_agi) + 
+		"\n\n\t\t--------- Preview ---------\n\n";
 	
 	std::string preview =
-		"An enigma with a past steeped in shadow, Gray is more than a talented thief. With "
-		"a sharp instinct they always dismissed as a 'gut feeling', Gray has spent a lifetime "
-		"unknowingly wielding supernatural \nforesight. Gray and their childhood best friend, "
+		"\tAn enigma with a past steeped in shadow, Gray is more than a talented thief. With "
+		"a sharp instinct they always \ndismissed as a 'gut feeling', Gray has spent a lifetime "
+		"unknowingly wielding supernatural foresight. Gray and their childhood \nbest friend, "
 		"Aurora, become an infamous duo in the criminal underworld, no longer stealing just "
-		"for survival, but for the thrill of the challenge. \nBut everything changed the night "
-		"they touched a strange, rune-etched box deep in the Wizard City's keep. Something "
+		"for survival, but for the \nthrill of the challenge. But everything changed the night "
+		"they touched a strange, rune-etched box deep in the Wizard City's \nkeep. Something "
 		"ancient and overwhelming was awakened within Gray. Now burdened with fragmented "
-		"memories and \nvoices that didn't belong to them, Gray has no choice but to unravel the "
-		"truth of the box and power that cultivated in side them. Gray didn't ask to become "
-		"become a vessel for forgotten magic, but might be \nthe only one who can survive it.\n\n";
+		"memories and voices that dodn't\nbelong to them, Gray has no choice but to unravel the "
+		"truth of the box and power that cultivated in side them. Gray didn't ask \nto become "
+		"a vessel for forgotten magic, but might be the only one who can survive it.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 
 }
 
@@ -126,8 +128,8 @@ void rogue::disp_backstory() const
 		"destroying it would severe whatever tie now bonded them to it and end the voices that "
 		"haunted their thoughts.\n\n";
 
-//	slow_print(backstory, 0);
-	slow_print(backstory);
+	slow_print(backstory, 0);
+//	slow_print(backstory);
 }
 
 //Sets starter abilities/weapons
@@ -182,8 +184,8 @@ void rogue::join_party() const
 		"Sometimes you bend, sometimes you stand-' \n'Ben I'm going to fucking murder you if you "
 		"don't shut the fuck up.'\n\n";
 
-//	slow_print(party, 0);
-	slow_print(party);
+	slow_print(party, 0);
+//	slow_print(party);
 }
 
 //Displays Gray's good ending

@@ -6,6 +6,8 @@
 #include <queue>			//record movement
 #include <climits>			//defines parameters that characterize ints
 #include <iomanip>			//for setw(), used in output
+#include <map>
+#include <set>
 #include "game.h"
 
 /************************************* CLASS DECLARATIONS *****g**************************************/
@@ -196,39 +198,41 @@ class level6 : public stage
 {
 	public: 
 		level6();
-		bool play(user * pl) override
+		bool play(user * pl) override;
 		bool is_complete() const override;
 
 	private:
 		bool completed;		//has the level been completed
-		int score;
 		//witnesses and their stories
-		std::vector<std::string> names;		//size = 3
-		std::vector<std::vector<int>> stories;	//per witness sequence of fact IDs
-		//facts and notebook
-		std::map<int, std::string> facts;	//fact id and display text
-							//fact id and list of ids it contradicts(
-		std::map<int, std::vector<int>> contradicts;//(symmetric)
-		std::map<int, int> notebook;		//fact id and 0: unknown, 1: true, 2: false
-		std::map<int, int> claimed;		//fact id and witness index
-		int truth;				//correct story, 0-2 = specific witness's story
-							//	3 = composite reconstruction is correct
-		//setup
-		void load_case();
-		void add_contradiction(int a, int b);
-		//UI/Flow
+		struct part
+		{
+			std::string text;	//fact text
+			std::string claimed;	//who claimed it: ben, theo, velia
+			int id;
+		};
+		struct story
+		{
+			std::string person;	//ben, theo, velia
+			std::string title;
+						//full paragraphs
+			std::vector<std::string> version;
+			std::vector<part> parts;//individual facts/parts
+		};
+		std::vector<story> stories;
+		std::set<int> notebook;		//tracks facts
+		std::map<int, bool> truth;	//true/false markings
+		void load_story();
+		void add_story(const std::string & person, const std::string & title,
+			       const std::vector<std::string> & facts);
 		void intro();
-		void menu();
-		void show_witness(int idx) const;
-		void show_notebook() const;
-		void list_facts() const;
-		void mark_fact();
-		void mark_contradict(int id, int state);
-		void explain(int id) const;
-		//resolution
-		int choose() const;
-		int tally_score() const;
-//		int award(user * pl, int score, bool verdict);
+		int menu() const;		//display menu and get user choice
+		std::string choose() const;	//select person by name
+		std::string pick() const;	//select part to display
+		void disp_full(const std::string & person);
+		void disp_part(const std::string & par);
+		void disp_notebook() const;
+		bool review();
+		bool choose_truth();
 
 };
 /*

@@ -59,26 +59,28 @@ void monk::level_up() noexcept
 void monk::intro() const
 {
 	std::string header =
-		"\nName: Ivy \nClass: Monk; Way of the Open Hand \n\n--------- BASE STATS ---------\n" 
-                "\nHP: " + std::to_string(monk::base_hp) +  "\nMP: " + std::to_string(monk::base_mp) +
-		"\nStrength: " + std::to_string(monk::base_str) + "\nIntellect: " +
-		std::to_string(monk::base_int) + "\nAgility: " + std::to_string(monk::base_agi) +
-                "\n\n--------- Preview ---------\n";
+		"\n\tName: Ivy \n\tClass: Monk; Way of the Open Hand \n\n\t\t--------- BASE STATS ---------\n" 
+                "\n\tHP: " + std::to_string(monk::base_hp) +  "\n\tMP: " + std::to_string(monk::base_mp) +
+		"\n\tStrength: " + std::to_string(monk::base_str) + "\n\tIntellect: " +
+		std::to_string(monk::base_int) + "\n\tAgility: " + std::to_string(monk::base_agi) +
+                "\n\n\t\t--------- Preview ---------\n\n";
 	std::string preview =
-		"Once destined to be a formidable warrior, Ivy's path took an unexpected turn from "
-		"combat to compassion. Raised in the quiet mmountains by a devoted order of Monks, "
-		"her childhood was marked by extraordinary \nmartial prowess, but it was "
-		"a trip to a nearby village and a burned boy's hand that changed everything. "
-		"\nNow a Way of the Open Hand Monk, Ivy balances precision with empathy, "
+		"\tOnce destined to be a formidable warrior, Ivy's path took an unexpected turn from "
+		"combat to compassion. Raised in the \nquiet mmountains by a devoted order of Monks, "
+		"her childhood was marked by extraordinary martial prowess, but it was "
+		"a trip to a \nnearby village and a burned boy's hand that changed everything. "
+		"Now a Way of the Open Hand Monk, Ivy balances precision with \nempathy, "
 		"trained not just to fight but to heal. Her bond with the villagers, especially "
-		"Tyler, grew stronger over the years, and when tragedy \nstruck, Ivy led he charge "
-		"to rescue the innocent and reclaim what was lost. \nBut in the ruins of the "
-		"battle torn town, cryptic messages and a strange shift in the world's spiritual "
-		"energy suggest a deeper threat, one Ivy may be uniquely attuned to sense... and "
-		"perhaps destined to \nconfront.\n\n";
+		"Tyler, grew stronger over the years, \nand when tragedy struck, Ivy led he charge "
+		"to rescue the innocent and reclaim what was lost. But in the ruins of the "
+		"battle torn \ntown, cryptic messages and a strange shift in the world's spiritual "
+		"energy suggest a deeper threat, one Ivy may be uniquely \nattuned to sense... and "
+		"perhaps destined to confront.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 
 }
 
@@ -126,8 +128,8 @@ void monk::disp_backstory() const
 		"walk all paths, the gentle, the fierce, the fluid, still, until the world was made "
 		"whole again.\n\n";
 
-//	slow_print(backstory, 0);
-	slow_print(backstory);
+	slow_print(backstory, 0);
+//	slow_print(backstory);
 }
 
 //Sets starter ability/weapon
@@ -177,8 +179,8 @@ void monk::join_party() const
 		"am I to refuse? I'd be honored to help.' \nShe offered him her hand, not glowing nor "
 		"enchanted. Just a hand. 'Let's go, we have an adventure to start.'\n\n";
 
-//	slow_print(party, 0);
-	slow_print(party);
+	slow_print(party, 0);
+//	slow_print(party);
 }
 
 //Displays Ivy's good ending

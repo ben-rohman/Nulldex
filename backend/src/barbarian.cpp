@@ -77,26 +77,27 @@ void barbarian::intro() const
 {
 
 	std::string header = 
-		"\nName: Rory \nClass: Barbarian; Berserker \n\n--------- BASE STATS ---------\n "
-                "\nHP: " + std::to_string(barbarian::base_hp) +  "\nMP: " +
-		std::to_string(barbarian::base_mp) + "\nStrength: " + std::to_string(barbarian::base_str) + 
-		"\nIntellect: " + std::to_string(barbarian::base_int) + "\nAgility: " +
-		std::to_string(barbarian::base_agi) + "\n--------- Preview --------- \n\n";
+		"\n\tName: Rory \n\tClass: Barbarian; Berserker \n\n\t\t--------- BASE STATS ---------\n "
+                "\n\tHP: " + std::to_string(barbarian::base_hp) +  "\n\tMP: " +
+		std::to_string(barbarian::base_mp) + "\n\tStrength: " + std::to_string(barbarian::base_str) + 
+		"\n\tIntellect: " + std::to_string(barbarian::base_int) + "\n\tAgility: " +
+		std::to_string(barbarian::base_agi) + "\n\n\t\t--------- Preview --------- \n\n";
 
 	std::string preview = 
 		"\tBorn to a a fearsome Barbarian Legacy, Rory was raised for battle but never fit "
-		"the mold. Their strength surfaced only through uncontrollable fury, feared by both "
-		"enemy and kin. \n\tWhen a strange Arcane wave swept over their homeland, it "
+		"the mold. Their strength surfaced only \nthrough uncontrollable fury, feared by both "
+		"enemy and kin. When a strange Arcane wave swept over their homeland, it "
 		"shattered minds and left their parents dead by their own hands. Rory blacked out in "
-		"a haze of blood and screams... and woke up alone. \n\tBranded a curse, they fled "
+		"a haze of blood and screams... and woke up alone. Branded a curse, they fled "
 		"into exile. But the voices of the dead still follow, fractured, vengeful, whispering "
-		"of a growing power. \n\tNow Rory hunts the source of the magic that broke them. "
+		"of a growing power. Now Rory hunts the source of the magic that broke them. "
 		+ BOLD + "\n\tThey will find whoever is responsible. \n\tAnd tear them apart with "
 		"their bare hands. " + RESET + "\n\n";
 
-	slow_print(header);
-
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 }
 
 //Displays Rory's backstory
@@ -145,8 +146,8 @@ void barbarian::disp_backstory() const
 		"\n\tThey will find the one responsible. \n\tAnd they will tear them apart with their bare hands. "
 		+ RESET + "\n\n";
 
-//	slow_print(backstory, 0);
-	slow_print(backstory);
+	slow_print(backstory, 0);
+//	slow_print(backstory);
 
 }
 
@@ -196,8 +197,8 @@ void barbarian::join_party() const
 		"'As long as we get it back.' \n\tRory nodded once. 'Then lead the way, little nerd. Let's go "
 		"dig up your mistake.'\n\n";
 
-//	slow_print(party, 0);
-	slow_print(party);
+	slow_print(party, 0);
+//	slow_print(party);
 
 }
 

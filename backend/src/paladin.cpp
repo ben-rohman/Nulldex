@@ -63,29 +63,31 @@ void paladin::level_up() noexcept
 void paladin::intro() const
 {
 	std::string header = 
-		"\nName: Tavish\nClass: Paladin; Oath of the Ancients\n\n--------- BASE STATS --------- \n"
-		"\nHP: " + std::to_string(paladin::base_hp) + "\nMP: " + std::to_string(paladin::base_mp) +
-		"\nStrength: " + std::to_string(paladin::base_str) + "\nIntellect: " + 
-		std::to_string(paladin::base_int) + "\nAgility: " + std::to_string(paladin::base_agi) +
-		"\n\n--------- Preview --------- \n\n";
+		"\n\tName: Tavish\n\tClass: Paladin; Oath of the Ancients\n\n\t\t--------- BASE STATS --------- \n"
+		"\n\tHP: " + std::to_string(paladin::base_hp) + "\n\tMP: " + std::to_string(paladin::base_mp) +
+		"\n\tStrength: " + std::to_string(paladin::base_str) + "\n\tIntellect: " + 
+		std::to_string(paladin::base_int) + "\n\tAgility: " + std::to_string(paladin::base_agi) +
+		"\n\n\t\t--------- Preview --------- \n\n";
 
 	std::string preview = 
-		  "Tavish never chased glory. While his father boasted endlessly of a long-lost "
-		  "Paladin ancestor and divine blessings in their bloodline, Tavish sought peace, "
-		  "not prestige. Raised among whispering woods and \nplayful forest sprites, he felt "
-		  "more at home in the trees than in tales of war. But when violence crept too "
-		  "close and the village he loved was forced to flee, Tavish was torn from the "
-		  "only friends who truly \nunderstood him. \n"
-		  "Haunted by loss ad bound by love, Tavish now walk a different path, one not forged "
-		  "by steel or politics, but by reverence for life and light. Tavish answered a call "
-		  "deep in an ancient forest to accept a \nsacred Oath: not to a king, but to nature "
-		  "itself. Now clad in armor woven with leaves and bearing a sword crowned with antlers, "
-		  "Tavish is a Paladin of the Ancients, sworn not to conquer, but to protect. His \npromise "
-		  "to the sprites is unbroken, his heart rooted in devotion, and his strength "
-		  "drawn from the beauty he vows to preserve.\n\n";
+		  "\tTavish never chased glory. While his father boasted endlessly of a long-lost "
+		  "Paladin ancestor and divine blessings in \ntheir bloodline, Tavish sought peace, "
+		  "not prestige. Raised among whispering woods and playful forest sprites, he felt "
+		  "more at \nhome in the trees than in tales of war. But when violence crept too "
+		  "close and the village he loved was forced to flee, Tavish \nwas torn from the "
+		  "only friends who truly understood him. Haunted by loss ad bound by love, Tavish "
+		  "now walk a different path, \none not forged by steel or politics, but by reverence "
+		  "for life and light. Tavish answered a call deep in an ancient forest to \naccept a "
+		  "sacred Oath: not to a king, but to nature itself. Now clad in armor woven with "
+		  "leaves and bearing a sword crowned with\nantlers, Tavish is a Paladin of the "
+		  "Ancients, sworn not to conquer, but to protect. His promise to the sprites is "
+		  "unbroken, his\nheart rooted in devotion, and his strength drawn from the beauty he "
+		  "vows to preserve.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 
 }
 

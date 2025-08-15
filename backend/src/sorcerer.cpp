@@ -62,26 +62,28 @@ void sorcerer::level_up() noexcept
 void sorcerer::intro() const
 {
 	std::string header =
-		"\nName: Sky \nClass: Sorcerer; Divine Soul \n\n--------- BASE STATS ---------\n"
-                "\nHP: " + std::to_string(sorcerer::base_hp) +  "\nMP: " + 
-		std::to_string(sorcerer::base_mp) + "\nStrength: " + std::to_string(sorcerer::base_str) +
-		"\nIntellect: " + std::to_string(sorcerer::base_int) + "\nAgility: " +
-		std::to_string(sorcerer::base_agi) +"\n\n--------- Preview --------\n\n";
+		"\n\tName: Sky \n\tClass: Sorcerer; Divine Soul \n\n\t\t--------- BASE STATS ---------\n"
+                "\n\tHP: " + std::to_string(sorcerer::base_hp) +  "\n\tMP: " + 
+		std::to_string(sorcerer::base_mp) + "\n\tStrength: " + std::to_string(sorcerer::base_str) +
+		"\n\tIntellect: " + std::to_string(sorcerer::base_int) + "\n\tAgility: " +
+		std::to_string(sorcerer::base_agi) +"\n\n\t\t--------- Preview --------\n\n";
 
 	std::string preview =
-		"Sky was raised in a lively city tavern by her mother and "
+		"\tSky was raised in a lively city tavern by her mother and "
 		"devoted stepfather, known for her fiery charm and quick wit. "
-		"But behind her radiant presence lies a secret, she is the daughter of Aether, "
-		"the sky \nand radiant light, and the subject of a prophecy foretelling a battle "
-		"against a soul thief who could unmake the world. \nTaught to keep her divine " 
-		"heritage hidden, Sky finds comfort in the familiar rhythms of tavern life, until a "
-		"grieving stranger shares a story of death, betrayal, and a magical invention "
-		"erased from history. \nHer bold response sets something in motion she won't " 
-		"understand until years later. \nSky walks the line between warmth and reckoning. "
+		"\nBut behind her radiant presence lies a secret, she is the daughter of Aether, "
+		"the sky and radiant light, and the subject of a \nprophecy foretelling a battle "
+		"against a soul thief who could unmake the world. Taught to keep her divine " 
+		"heritage hidden, Sky \nfinds comfort in the familiar rhythms of tavern life, until a "
+		"grieving stranger shares a story of death, betrayal, and a magical \ninvention "
+		"erased from history. Her bold response sets something in motion she won't " 
+		"understand until years later. Sky walks the \nline between warmth and reckoning. "
 		"her fate is written in flame.\n\n";
 
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 
 }
 
@@ -118,8 +120,8 @@ void sorcerer::disp_backstory() const
 		"of the source of magical energy had originated there and filled with an uncertain hope that "
 		"confronting her destiny might save the world... or doom it.\n\n";
 
-//	slow_print(backstory, 0);
-	slow_print(backstory);
+	slow_print(backstory, 0);
+//	slow_print(backstory);
 }
 
 //Sets starater abilities/weapons
@@ -164,8 +166,8 @@ void sorcerer::join_party() const
 		"a dry chuckle. 'You're lucky I'm bored and have nowhere else to go.' \n'Ben's smile widened. "
 		"'I'll take it.'\n\n";
 
-//	slow_print(party, 0);
-	slow_print(party);
+	slow_print(party, 0);
+//	slow_print(party);
 }
 
 //Displays Sky's good ending

@@ -60,30 +60,32 @@ void wizard::level_up() noexcept
 void wizard::intro() const
 {
 	std::string header = 
-		"\nName: Aurora \nClass: Wizard; Evocation \n\n--------- BASE STATS --------- \n"
-                "\nHP: " + std::to_string(wizard::base_hp) +  "\nMP: " + 
-		std::to_string(wizard::base_mp) + "\nStrength: " + std::to_string(wizard::base_str) +
-		"\nIntellect: " + std::to_string(wizard::base_int) + "\nAgility: " +
-		std::to_string(wizard::base_agi) + "\n\n--------- Preview ---------\n\n";
+		"\n\tName: Aurora \n\tClass: Wizard; Evocation \n\n\t\t--------- BASE STATS --------- \n"
+                "\n\tHP: " + std::to_string(wizard::base_hp) + "\n\tMP: " + 
+		std::to_string(wizard::base_mp) + "\n\tStrength: " + std::to_string(wizard::base_str) +
+		"\n\tIntellect: " + std::to_string(wizard::base_int) + "\n\tAgility: " +
+		std::to_string(wizard::base_agi) + "\n\n\t\t--------- Preview ---------\n\n";
 	
 	std::string preview = 
-		"A former street thief turned reluctant Wizard, Aurora was once known only for her sharp "
-		"mind and quicker fingers. Raised alongside her close friend, Gray, the two "
-		"beame infamous as a clever and efficient \ncriminal duo, one powered by psionic "
-		"talents, the other by sheer determination. But everything changed the night they "
-		"accepted a dangerous job to steal a magical artifact from the heart of the Wizard "
-		"City. \nIn the depths of the keep, something ancient and hidden is redirected to "
-		"Aurora, the result of a magical force momentarily binding her to a terrified "
+		"\tA former street thief turned reluctant Wizard, Aurora was once known only for her sharp "
+		"mind and quicker fingers. \nRaised alongside her close friend, Gray, the two "
+		"beame infamous as a clever and efficient criminal duo, one powered by psionic "
+		"\ntalents, the other by sheer determination. But everything changed the night they "
+		"accepted a dangerous job to steal a magical \nartifact from the heart of the Wizard "
+		"City. In the depths of the keep, something ancient and hidden is redirected to "
+		"Aurora, \nthe result of a magical force momentarily binding her to a terrified "
 		"Wizard Guard. What was supposed to be a simple heist \nturned into a nightmare of "
 		"betrayal, death, and Arcane forces tearing their world apart. Aurora barely "
-		"escapes with her life, and something else entirely. Now marked with the remnants "
-		"of her bounds and \nchanged by a mysterious power she never sought, Aurora grapples "
+		"escapes with her life, \nand something else entirely. Now marked with the remnants "
+		"of her bounds and changed by a mysterious power she never sought, \nAurora grapples "
 		"with the memory that reshaped her life. The magic that surged through her was sudden "
-		"and terrifying, hers now, whether she liked it or not. She \nnever asked for this power, "
+		"and terrifying, hers now, \nwhether she liked it or not. She never asked for this power, "
 		"but she'll use it if it means protecting her friend.\n\n";
 	
-	slow_print(header);
-	slow_print(preview);
+	slow_print(header, 0);
+	slow_print(preview, 0);
+//	slow_print(header);
+//	slow_print(preview);
 
 }
 		  
@@ -122,8 +124,8 @@ void wizard::disp_backstory() const
 		"to help Gray break the artifact's hold... and maybe protect the magic that was finally "
 		"hers.\n\n";
 
-//	slow_print(backstory, 0);
-	slow_print(backstory);
+	slow_print(backstory, 0);
+//	slow_print(backstory);
 
 }
 
@@ -184,8 +186,8 @@ void wizard::join_party() const
 		"\n'Thank you.' Ben exhaled, sounding as if he'd been holding his breath. \n'Thank me "
 		"after we get your NeuroArchive back. Now come on, we've got a scavenger hunt to go on.'\n\n";
 	
-//	slow_print(party, 0);
-	slow_print(party);
+	slow_print(party, 0);
+//	slow_print(party);
 }
 
 //Displays Aurora's good ending

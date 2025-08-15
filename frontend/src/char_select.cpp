@@ -17,6 +17,7 @@ user * intros()
 
 	while (true)
 	{
+		clear_screen();
 		input = char_menu();	//display character options and make them lowercase
 
 		if (input == "ready")
@@ -30,6 +31,7 @@ user * intros()
 		if (tmp)
 		{
 			tmp->intro();		//call character class's member function intro
+			wait();	
 			delete tmp;		//clean up temp object
 			tmp = nullptr;
 		}
